@@ -1,4 +1,3 @@
-#r "Newtonsoft.Json.dll"
 #r "System.Web.Http"
 #r "System.Xml.Linq"
 
