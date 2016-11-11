@@ -1,4 +1,3 @@
-#r "System.Web.Http"
 #r "System.Xml.Linq"
 
 using System;
@@ -40,7 +39,7 @@ public static async Task<string> TranslateToFrench(string text, string key)
 
     string headerValue = "Bearer " + authToken;
 
-    string uri = "http://api.microsofttranslator.com/v2/Http.svc/Translate?text=" + System.Web.HttpUtility.UrlEncode(text) + "&from=en&to=fr";
+    string uri = "http://api.microsofttranslator.com/v2/Http.svc/Translate?text=" + System.Uri.EscapeDataString(text) + "&from=en&to=fr";
     HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(uri);
     httpWebRequest.Headers.Add("Authorization", headerValue);
     WebResponse response = await httpWebRequest.GetResponseAsync();
